@@ -1,0 +1,55 @@
+{
+  "name": "changelist",
+  "version": "0.0.1",
+  "description": "Generate a simple changelog for your release based on git commit history.",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picodix/changelist"
+  },
+  "bugs": {
+    "url": "https://github.com/picodix/changelist/issues"
+  },
+  "keywords": [
+    "git",
+    "changelog",
+    "release"
+  ],
+  "author": "picodix",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "bin": {
+    "changelist": "cli.js"
+  },
+  "files": [
+    "main.js",
+    "cli.js",
+    "helpers.js",
+    "presets"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "meow": "^3.7.0",
+    "mkdir-recursive": "^0.4.0",
+    "pad-start": "^1.0.2",
+    "prepend-file": "^1.3.1",
+    "read-pkg-up": "^1.0.1",
+    "semver": "^5.1.0",
+    "strip-eof": "^1.0.0"
+  },
+  "devDependencies": {
+    "execa": "^0.2.2",
+    "shelljs": "^0.6.0"
+  },
+  "xo": {
+    "rules": {
+      "object-shorthand": 0,
+      "prefer-destructuring": 0,
+      "camelcase": 0,
+      "promise/prefer-await-to-then": 0
+    }
+  }
+}
