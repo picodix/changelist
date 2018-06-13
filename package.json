@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Generate a simple changelog for your release based on git commit history.",
   "scripts": {
+    "test": "xo && ava --verbose"
   },
   "repository": {
     "type": "git",
@@ -41,8 +42,10 @@
     "strip-eof": "^1.0.0"
   },
   "devDependencies": {
+    "ava": "*",
     "execa": "^0.2.2",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.6.0",
+    "xo": "*"
   },
   "xo": {
     "rules": {
