@@ -52,7 +52,8 @@
       "object-shorthand": 0,
       "prefer-destructuring": 0,
       "camelcase": 0,
-      "promise/prefer-await-to-then": 0
+      "promise/prefer-await-to-then": 0,
+      "quotes": 0
     }
   }
 }

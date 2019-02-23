@@ -36,15 +36,15 @@ module.exports = function (opts) {
 
 	H.section('Checking preset');
 
-	// This could be made dynamic with cli options like so:
 	const preset = opts.preset ? opts.preset.trim() : 'markdown';
 	let formater;
 	if (preset) {
 		try {
 			formater = require('./presets/' + preset.toLowerCase());
-		} catch (err) {
+		} catch (error) {
 			H.error('ERROR: Preset `' + preset + '` doesn\'t exist', 1);
 		}
+
 		H.log('Using ' + preset + ' preset.');
 	} else {
 		H.log('Using default preset.');

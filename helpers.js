@@ -21,7 +21,7 @@ module.exports = {
 	checkDirectory: function (dir) {
 		try {
 			fs.statSync(dir);
-		} catch (err) {
+		} catch (error) {
 			this.error(`no such file or directory: ${dir}`, 1);
 		}
 
@@ -50,8 +50,8 @@ module.exports = {
 		try {
 			const rs = execSync(cmd, opts);
 			return rs && stripEof(rs).toString();
-		} catch (err) {
-			this.error(msg || stripEof(err.stderr).toString().split(/\r?\n/)[0], err.status || 1);
+		} catch (error) {
+			this.error(msg || stripEof(error.stderr).toString().split(/\r?\n/)[0], error.status || 1);
 		}
 	},
 
@@ -115,7 +115,7 @@ module.exports = {
 		try {
 			commithash = execSync('git rev-list --tags --max-count=1',
 				{stdio: ['ignore', 'pipe', 'ignore']});
-		} catch (err) {
+		} catch (error) {
 			return '';
 		}
 
@@ -198,6 +198,7 @@ module.exports = {
 		if (!fs.existsSync(pathToFileOutput)) {
 			fx.mkdirSync(path.dirname(pathToFileOutput));
 		}
+
 		// Prepend changelog item in passed file
 		prependFile.sync(pathToFileOutput, data);
 		// Friendly user input (only visible in verbose mode)
