@@ -1,6 +1,6 @@
 {
   "name": "changelist",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Generate a simple changelog for your release based on git commit history.",
   "scripts": {
     "test": "xo && ava --verbose"
