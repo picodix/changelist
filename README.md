@@ -44,10 +44,29 @@ Examples
 &nbsp;
 # Features
 
-- custom presets
-- ignore commit with specific message
-- prepend output to file
-- generate release name
+- [Auto categorisation](#commit-categorisation)
+- [Custom presets](#using-different-presets)
+- [Ignore commit with specific message](#remove-commit-with-specific-message-or-commit-you-are-ashamed-of)
+- [Prepend output to file](#prepend-output-to-file)
+- [Generate release name](#name-generation)
+
+
+&nbsp;
+## Commit categorisation
+
+If you format your commit(s) using the following syntax `[category]: [commit message]` this will automatically group the commits under the specified category.
+
+For example if we take the following commits:
+- documentation: add options documentation
+- documentation: update options examples
+
+This will get exported like so:
+
+---
+### **Documentation**
+* Add options documentation
+* Update options examples
+---
 
 &nbsp;
 ## Using different presets
@@ -61,8 +80,8 @@ Available presets:
 - `markdown`: default markdown export
 - `slack`: a slack friendly changelist export (using [slack message formatting](https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages))
 
-&nbsp;
 
+&nbsp;
 ## Remove commit with specific message or commit you are ashamed of
 
 We are humans and sometimes we can do stuff we are not proud of. If you want/need to mask commit containing a certain message from your export, you can use the `ignore` option like so:
@@ -71,14 +90,14 @@ We are humans and sometimes we can do stuff we are not proud of. If you want/nee
 $ changelist -i 'jobs... steve jobs'
 ```
 
-> NOTE: if you need to hide several commits in the changelist (yeah sometime shit happens) it's also possible using comma separated values:
+> **NOTE**: if you need to hide several commits in the changelist (yeah sometime shit happens) it's also possible using comma separated values:
 
 ```
 $ changelist -i 'jobs... steve jobs','gave up and used table','all sorts of things'
 ```
 
-&nbsp;
 
+&nbsp;
 ## Prepend output to file
 
 ```
@@ -87,22 +106,14 @@ $ changelist -o TEST.md
 
 Will prepend the output of the command to a `TEST.md` file (and create the file if missing).
 
-> NOTE: the ouput folder will follow the exact path you entered meaning that you could do something like:
+> **NOTE** the ouput folder will follow the exact path you entered meaning that you could do something like:
 
 ```
 $ changelist -o ./foo/bar/TEST.md
 ```
 
-> This will create the folders recursively if they are missing or simply use the existing file otherwise.
+> This will create the folders recursively if missing or simply use the existing file otherwise.
 
-&nbsp;
-## Write output into a CHANGELOG.md file in bash/sh
-
-If you need to prepend the result of the changelist command in a file, you can simply do:
-
-```
-$ echo -e "$(changelist)\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
-```
 
 &nbsp;
 ## Name generation
@@ -113,6 +124,16 @@ $ changelist -N
 ```
 This will give you cool names like `Repulsive Chirogymnast`, `Kernelless Reestimation` or `Overtrustful Japygid`.
 Why? Because it's fun. And it's important to have fun.
+
+
+&nbsp;
+## Write output into a CHANGELOG.md file in bash/sh
+
+If you need to prepend the result of the changelist command in a file, you can simply do:
+
+```
+$ echo -e "$(changelist)\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+```
 
 &nbsp;
 ## Todo
