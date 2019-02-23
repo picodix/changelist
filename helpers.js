@@ -96,7 +96,7 @@ module.exports = {
 
 		if (!commitish) {
 			tag = this.getTag();
-			commitish = tag && tag + '..HEAD';
+			commitish = tag ? (tag && tag + '..HEAD') : '';
 		}
 
 		this.log('Getting the list of commits...');
@@ -119,7 +119,9 @@ module.exports = {
 			return '';
 		}
 
-		return this.exec('git describe --tags ' + commithash);
+		if (commithash.length !== 0) {
+			return this.exec('git describe --tags ' + commithash);
+		}
 	},
 
 	getVersion: function (release) {
